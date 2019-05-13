@@ -66,7 +66,7 @@ rdoc-image:img/use_case_diagram.png
 
 == Acknowledgments
 
-- The {Greeter example}[http://34.212.143.74/s201911/tc3049/greeter.tgz] Application by {our professor}[http://arielortiz.info/] Ariel Ortiz
+- The {Greeter example app}[http://34.212.143.74/s201911/tc3049/greeter.tgz] Application by {our professor}[http://arielortiz.info/] Ariel Ortiz
 
 == References
 
