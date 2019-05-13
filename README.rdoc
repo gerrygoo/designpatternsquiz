@@ -24,37 +24,37 @@ Afterwards, point your web browser the server’s root URL.
 == 4+1 Architectural View Model
 === Logical View
 
-The logical view contains information about the various parts of the system. In UML the logical view is typically modeled using <em>class diagrams</em>.
-
-For example, the following figure represents the UML class diagram for the +Greeter+ model and its factory class:
+The logical view contains information about the various parts of the system. We use UML's <em>class diagrams</em> to model the logical view.
 
 rdoc-image:img/class_diagram.png
 
-You can include as many of these diagrams as you consider necessary. Note that you only need to specify the names of the classes and their relationships. Don’t include attributes or method names in these diagrams.
+You can include as many of these diagrams as you consider necessary.
+Note that you only need to specify the names of the classes and their relationships.
+Don’t include attributes or method names in these diagrams.
 
 To include an image in this document, copy it to the +img+ directory and refer it as: +rdoc-image:img/some_image.png+. You can use any web supported image format (PNG, JPEG, GIF, etc.).
 
 === Process View
 
-The process view focuses on the runtime behavior of the system. In UML, <em>activity diagrams</em> are used to model this view.
+The process view focuses on the runtime behavior of the system. We use UML's <em>activity diagrams</em> to model this view.
 
 rdoc-image:img/activity_diagram.png
 
 === Development View
 
-The development view focuses on software modules and subsystems. In UML, <em>package diagrams</em> are used to model the development view.
+The development view focuses on software modules and subsystems. We use UML's <em>package diagrams</em> to model the development view.
 
 rdoc-image:img/package_diagram.png
 
 === Physical View
 
-The physical view describes the physical deployment of the system, revealing which pieces of software run on what pieces of hardware. In UML, <em>deployment diagrams</em> are used to model the physical view.
+The physical view describes the physical deployment of the system, revealing which pieces of software run on what pieces of hardware. We use UML's <em>deployment diagram</em> to model the development view.
 
 rdoc-image:img/deployment_diagram.png
 
 === Scenarios
 
-This view describes the functionality of the system from the perspective from outside world. It contains diagrams describing what the system is supposed to do from a black box perspective. UML <em>use case diagrams</em> are used for this view.
+This view describes the functionality of the system from the perspective from outside world. It contains diagrams describing what the system is supposed to do from a black box perspective. We use UML's <em>use case diagrams</em> to model the development view.
 
 rdoc-image:img/use_case_diagram.png
 
@@ -62,7 +62,7 @@ rdoc-image:img/use_case_diagram.png
 
 - <b>Domain-Specific Language</b>: The +server.rb+ file consists of a series of Sinatra _routes_. Sinatra is a DSL for creating web applications in Ruby.
 - <b>Model-View-Controller</b>: The application follows the classical web implementation of the MVC architectural pattern. The models (+.rb+ files) and views (+.erb+ files) are stored in the corresponding +models+ and +views+ directory. The controller is contained in +server.rb+ file.
-- <b>Microservices</b>: The _Patterns Quiz_ application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the
+- <b>Microservices</b>: The _Patterns_ _Quiz_ application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the
 
 == Acknowledgments
 
