@@ -62,17 +62,13 @@ rdoc-image:img/use_case_diagram.png
 
 - <b>Domain-Specific Language</b>: The +server.rb+ file consists of a series of Sinatra _routes_. Sinatra is a DSL for creating web applications in Ruby.
 - <b>Model-View-Controller</b>: The application follows the classical web implementation of the MVC architectural pattern. The models (+.rb+ files) and views (+.erb+ files) are stored in the corresponding +models+ and +views+ directory. The controller is contained in +server.rb+ file.
-- <b>Microservices</b>: The _Patterns Quiz_ application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the 
+- <b>Microservices</b>: The _Patterns Quiz_ application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the
 
 == Acknowledgments
 
-This section is optional. If somebody helped you with your project make sure to include her or his name here.
+- The {Greeter example}[http://34.212.143.74/s201911/tc3049/greeter.tgz] Application by {our professor}[http://arielortiz.info/] Ariel Ortiz
 
 == References
-
-- \M. Fowler. <em>UML Distilled: A Brief Guide to the Standard Object Modeling Language, 3rd Edition.</em>  Addison-Wesley, 2003.
-
-- \E. Gamma, R. Helm, R. Johnson, J. M. Vlissides. <em>Design Patterns: Elements of Reusable Object-Oriented Software.</em> Addison-Wesley, 1994.
 
 - \Ph. Kruchten. <em>The 4+1 View Model of Architecture.</em> IEEE Software, vol. 12 (6), pp. 45-50, 1995. {\http://www.ics.uci.edu/~andre/ics223w2006/kruchten3.pdf}[http://www.ics.uci.edu/~andre/ics223w2006/kruchten3.pdf] Accessed April 11, 2019.
 
