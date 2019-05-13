@@ -1,7 +1,7 @@
 = Design Patterns Quiz App
 
 This documentation was developed as part of a programming
-prohect for the <em>Software Design and Architecture</em>
+project for the <em>Software Design and Architecture</em>
 course (_Tc3049_), at the Tecnológico de Monterrey, Campus
 Estado de México. It documents a web application that uses
 the Sinatra DSL and AWS-Lambda-Hosted microservices to implement
