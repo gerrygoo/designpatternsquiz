@@ -1,3 +1,11 @@
+# Final Project: Quiz Application with Microservices
+# Date: 14-May-2019
+# Authors:
+#	A01371872 Gerardo Galván
+#	A01377503 Ian Neumann
+# 	A01371779 Andrés de Lago
+
+
 require 'sinatra'
 require 'Faraday'
 
@@ -9,7 +17,7 @@ get '/' do
 	res = conn.get do | req |
 		req.headers['x-api-key'] = QUESTIONS_KEY
 	end
-	
+
 	questions = res.body
 	puts(questions)
 
