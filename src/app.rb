@@ -61,9 +61,9 @@ end
 
 
 post '/done' do
-	if not session[:quiz] or not params['phone_number'] then
-		return erb :not_found
-	end
+	return erb :not_found if not session[:quiz]
+
+	redirect '/' if not params['phone_number']
 
 	quiz = Quiz.new( JSON.load( session[:quiz].to_s ) )
 	api.post_sms params['phone_number'], "Your Design Patterns Score was #{ quiz.score }"
