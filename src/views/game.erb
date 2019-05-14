@@ -1,0 +1,34 @@
+<%# Final Project: Quiz Application with Microservices %>
+<%# Date: 14-May-2019 %>
+<%# Authors: %>
+<%# 	A01371872 Gerardo Galván %>
+<%# 	A01377503 Ian Neumann %>
+<%# 	A01371779 Andrés de Lago %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <link href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+    <title>Quiz</title>
+  </head>
+  <body class='container'>
+    <p>Welcome to the game man</p>
+    <%= @question %>
+
+    <form action='/play' method='post'>
+      <ul class='unstyled'>
+        <% @question['options'].each_with_index do |text, index| %>
+          <li>
+            <label class='radio'>
+              <input type='radio' name='answer' value='<%= index %>' id='answer_<%= index %>' />
+              <%= text %>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+      <button type='submit' class='btn btn-primary'>Answer!</button>
+    </form>
+
+  </body>
+</html>

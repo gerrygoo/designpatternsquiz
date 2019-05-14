@@ -5,21 +5,56 @@
 #	A01377503 Ian Neumann
 # 	A01371779 Andrés de Lago
 
-
 require 'sinatra'
-require 'Faraday'
+require 'json'
 
-QUERTIONS_ENDPOINT = 'https://cxi64jj0b0.execute-api.us-east-2.amazonaws.com/default/quiz_questions'
-QUESTIONS_KEY = 'jVv5JUY3R958HMEa27LWK4fDzHvBUKYx8hXHTRUK'
+require 'models/api'
+require 'models/quiz'
+
+enable :sessions
+api = API.instance
 
 get '/' do
-	conn = Faraday.new( :url => QUERTIONS_ENDPOINT )
-	res = conn.get do | req |
-		req.headers['x-api-key'] = QUESTIONS_KEY
+	puts('get')
+	erb :home
+end
+
+post '/play' do
+	quiz = nil
+
+	if session[:quiz] then
+		quiz = Quiz.new( JSON.load( session[:quiz].to_s ) )
+	else
+		quiz = Quiz.new({
+			user_name: params['name'],
+			questions: api.get_questions(params['quetion_number'])
+		})
+		session[:quiz] = quiz.to_json
 	end
 
-	questions = res.body
-	puts(questions)
 
-	erb :home
+	if params['answer']
+		answer = params['answer']
+		quiz.answer_question answer
+		session[:quiz] = quiz.to_json
+	end
+
+	redirect '/done' if quiz.done
+
+	@question = quiz.current_question
+	erb :game
+end
+
+get '/done' do
+	if not session[:quiz] then
+		return erb :not_found
+	end
+
+	@quiz = Quiz.new( JSON.load( session[:quiz].to_s ) )
+
+	api.post_score @quiz.user_name, @quiz.score
+
+	@scores = api.get_scores
+
+	erb :done
 end
