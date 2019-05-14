@@ -11,6 +11,33 @@
     <meta charset='UTF-8' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <title>Quiz</title>
+
+    <script type="text/javascript">
+      function show_answer(){
+        var answ = undefined;
+        var elements = document.getElementsByName('answer');
+        for (var i=0, len=elements.length; i<len; ++i){
+          if (elements[i].checked) {
+            answ = elements[i].id;
+            break;
+          }
+        }
+        if(answ === undefined){
+          return;
+        }
+        for (var i=0, len=elements.length; i<len; ++i){
+          elements[i].setAttribute('disabled', true);
+        }
+        var correct = "answer_<%= @question['answer']%>";
+        document.getElementById(correct).classList.add('is-valid');
+        if(answ != correct){
+          document.getElementById(answ).classList.add('is-invalid');
+        }
+        document.getElementById('js-btn').style.display = 'none';
+        document.getElementById('submit-btn').style.display = 'initial';
+      }
+    </script>
+
   </head>
   <body class='container'>
     <div style="text-align: center">
@@ -18,17 +45,17 @@
     </div>
     <p><strong><%= @question['question'] %></strong></p>
 
-    <form action='/play' method='post'>
+    <form action='/play' method='post' onsubmit="this.querySelectorAll('input').forEach(i => i.disabled = false)">
       <% @question['options'].each_with_index do |text, index| %>
         <div class="form-check">
           <input type='radio' class="form-check-input" name='answer' value='<%= index %>' id='answer_<%= index %>' />
-          <label class='radio'> <%= text %> </label>
+          <label class='form-check-label'> <%= text %> </label>
         </div>
       <% end %>
       <div style="text-align: center;margin-top:15px">
-        <button type='submit' class='btn btn-primary'>Answer!</button>
+        <button type='submit' style='display: none' id="submit-btn" class='btn btn-success'>Next</button>
+        <button type='button' class='btn btn-primary' id='js-btn' onClick="show_answer();">Answer!</button>
       </div>
     </form>
-
   </body>
 </html>
