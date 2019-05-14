@@ -19,7 +19,7 @@ SCORE_ENDPOINT = 'https://t32wtpon7k.execute-api.us-east-2.amazonaws.com/default
 SCORE_KEY = 'YtB1AtYNz3bU0fSEhI2q1lmECbdoZng22ZYeCs15'
 
 # The sms microservice endpoint url
-SMS_ENDPOINT = 'https://t32wtpon7k.execute-api.us-east-2.amazonaws.com/default/quiz_score'
+SMS_ENDPOINT = 'https://pibdr9ji00.execute-api.us-east-2.amazonaws.com/default/quiz_sms'
 # The sms microservice api key
 SMS_KEY = 'jCI1WzYUnM7LxjbmjoF5HaC1Gz4gsfVN1T2VpC9C'
 

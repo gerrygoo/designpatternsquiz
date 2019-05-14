@@ -76,7 +76,6 @@ class Quiz
         was_answer_correct = "#{answer}" == "#{correct_answer}"
         @data[:progress] += 1
         @data[:score] += 1 if was_answer_correct
-        puts 'onanswer', answer, correct_answer, was_answer_correct, @data[:score]
         was_answer_correct
     end
 
