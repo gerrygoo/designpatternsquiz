@@ -66,16 +66,17 @@ class Quiz
     end
 
     # Answers the current question.
-    #
+    # Updates the quiz state.
     # Parameter::
     #   answer:: The answer to the question
     #
     # Returns:: True if the question was answered correctly, False otherwise.
     def answer_question answer
         correct_answer = self.current_question["answer"]
-        was_answer_correct = answer == correct_answer
+        was_answer_correct = "#{answer}" == "#{correct_answer}"
         @data[:progress] += 1
         @data[:score] += 1 if was_answer_correct
+        puts 'onanswer', answer, correct_answer, was_answer_correct, @data[:score]
         was_answer_correct
     end
 

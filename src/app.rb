@@ -31,6 +31,7 @@ post '/play' do
 		session[:quiz] = quiz.to_json
 	end
 
+	puts 'play', quiz
 
 	if params['answer']
 		answer = params['answer']

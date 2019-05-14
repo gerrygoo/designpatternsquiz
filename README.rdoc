@@ -21,6 +21,8 @@ You need to have Ruby 2.3 or more recent and the {Sinatra}[http://www.sinatrarb.
 
 Afterwards, point your web browser the server’s root URL.
 
+The microservices are live and hosted in AWS. There's nothing that needs to be done about them.
+
 == 4+1 Architectural View Model
 === Logical View
 
