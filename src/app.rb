@@ -15,7 +15,6 @@ enable :sessions
 api = API.instance
 
 get '/' do
-	puts('get')
 	erb :home
 end
 
@@ -65,9 +64,9 @@ post '/done' do
 		return erb :not_found
 	end
 
-	quiz = session[:quiz]
+	quiz = Quiz.new( JSON.load( session[:quiz].to_s ) )
 	api.post_sms params['phone_number'], "Your Design Patterns Score was #{ quiz.score }"
 
-	sesion.delete(:quiz)
+	session.delete(:quiz)
 	redirect '/'
 end
