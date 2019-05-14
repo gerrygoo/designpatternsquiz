@@ -9,18 +9,42 @@
 <html>
   <head>
     <meta charset='UTF-8' />
-    <link href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
-    <title>Quiz</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>    <title>Quiz</title>
   </head>
   <body class='container'>
-    <p>Done!</p>
-    <p><%= @quiz %></p>
-    <p><%= @scores %></p>
+    <div style="text-align: center">
+      <h2>Congratulations <strong><%= @quiz.user_name %></strong> you are done!</h2>
+      <p>Your score was: <strong><%= @quiz.score %></strong></p>
+    </div>
 
     <form action='done' method='post'>
-      <input type='text' name='phone_number' required />
-      <button type='submit' class='btn btn-primary'>Send score over sms!</button>
+      <div class="form-group row">
+        <label for="name" class='col-sm-3 col-form-label'>Phone number</label>
+        <div class="col-sm-5">
+          <input class="form-control" type='text' name='phone_number' required />
+        </div>
+        <div class='col-sm-4'>
+          <button type='submit' class='btn btn-primary'>Send score over sms!</button>
+        </div>
+      </div>
     </form>
 
+    <h3>Previous Scores</h3>
+    <table class='table table-striped'>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @scores.each do |score| %>
+          <tr>
+            <td><%= score['initials'] %></td>
+            <td><%= score['score'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <table>
   </body>
 </html>

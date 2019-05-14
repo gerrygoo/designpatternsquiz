@@ -9,25 +9,25 @@
 <html>
   <head>
     <meta charset='UTF-8' />
-    <link href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <title>Quiz</title>
   </head>
   <body class='container'>
-    <p>Welcome to the game man</p>
-    <%= @question %>
+    <div style="text-align: center">
+      <h2>Welcome to the game man</h2>
+    </div>
+    <p><strong><%= @question['question'] %></strong></p>
 
     <form action='/play' method='post'>
-      <ul class='unstyled'>
-        <% @question['options'].each_with_index do |text, index| %>
-          <li>
-            <label class='radio'>
-              <input type='radio' name='answer' value='<%= index %>' id='answer_<%= index %>' />
-              <%= text %>
-            </label>
-          </li>
-        <% end %>
-      </ul>
-      <button type='submit' class='btn btn-primary'>Answer!</button>
+      <% @question['options'].each_with_index do |text, index| %>
+        <div class="form-check">
+          <input type='radio' class="form-check-input" name='answer' value='<%= index %>' id='answer_<%= index %>' />
+          <label class='radio'> <%= text %> </label>
+        </div>
+      <% end %>
+      <div style="text-align: center;margin-top:15px">
+        <button type='submit' class='btn btn-primary'>Answer!</button>
+      </div>
     </form>
 
   </body>
