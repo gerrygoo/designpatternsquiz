@@ -15,7 +15,7 @@ a quiz game with questions about the Design Patterns covered in class.
 
 == Installing and Running the Application
 
-You need to have Ruby 2.3 or more recent and the {Sinatra}[http://www.sinatrarb.com/] and the {Faraday}[https://github.com/lostisland/faraday] gems installed in your system to run the _Design Patterns Quiz_ web application. To run the server type the following command at the terminal from the +greeter/src+ directory:
+You need to have Ruby 2.3 or more recent and the {Sinatra}[http://www.sinatrarb.com/] and the {Faraday}[https://github.com/lostisland/faraday] gems installed in your system to run the <em>Design Patterns Quiz</em> web application. To run the server type the following command at the terminal from the +src+ directory:
 
     $ ruby -I . -w app.rb
 
@@ -60,9 +60,10 @@ rdoc-image:img/use_case_diagram.png
 
 == Patterns Used
 
-- <b>Domain-Specific Language</b>: The +server.rb+ file consists of a series of Sinatra _routes_. Sinatra is a DSL for creating web applications in Ruby.
+- <b>Domain-Specific Language</b>: The +app.rb+ file consists of a series of Sinatra _routes_. Sinatra is a DSL for creating web applications in Ruby.
+- <b>Singleton</b>: The +api.rb+ file consists of a class that implements the ruby _singleton_ module. As such, only one instance is ever created and used.
 - <b>Model-View-Controller</b>: The application follows the classical web implementation of the MVC architectural pattern. The models (+.rb+ files) and views (+.erb+ files) are stored in the corresponding +models+ and +views+ directory. The controller is contained in +server.rb+ file.
-- <b>Microservices</b>: The _Patterns_ _Quiz_ application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the
+- <b>Microservices</b>: The <em>Patterns Quiz</em> application consumes microservices implemented and hosted in AWS Lambdas to present the questions and keep track of the
 
 == Acknowledgments
 
