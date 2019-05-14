@@ -58,3 +58,16 @@ get '/done' do
 
 	erb :done
 end
+
+
+post '/done' do
+	if not session[:quiz] or not params['phone_number'] then
+		return erb :not_found
+	end
+
+	quiz = session[:quiz]
+	api.post_sms params['phone_number'], "Your Design Patterns Score was #{ quiz.score }"
+
+	sesion.delete(:quiz)
+	redirect '/'
+end

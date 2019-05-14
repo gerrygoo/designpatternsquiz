@@ -16,5 +16,11 @@
     <p>Done!</p>
     <p><%= @quiz %></p>
     <p><%= @scores %></p>
+
+    <form action='done' method='post'>
+      <input type='text' name='phone_number' required />
+      <button type='submit' class='btn btn-primary'>Send score over sms!</button>
+    </form>
+
   </body>
 </html>
